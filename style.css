@@ -1,0 +1,84 @@
+:root {
+    --radio: min(30vw, 30vh);
+    --grosor: calc( var(--radio) * .15 );
+    --color-fondo: rgb(249, 249, 249);
+    --color-reloj-perfil: hsl(0, 68%, 64%);
+    --color-reloj-fondo: hsl(231, 14%, 18%);
+    --color-hora: hsl(0, 0%, 100%);
+    --color-minutos: hsl(232, 64%, 88%);
+    --color-segundos: hsl(210, 81%, 79%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+    display: grid;
+    place-content: center;
+}
+
+.reloj {
+    position: relative;
+    width: calc(var(--radio)*2);
+    height: calc(var(--radio)*2);
+    transform-origin: center center;
+    background-color: var(--color-reloj-fondo);
+    background-image: url('reloj.svg');
+    background-size: cover;
+    border-radius: 50%;
+    border: var(--color-reloj-perfil) solid var(--grosor); 
+    box-shadow: 0px 0px 10px var(--color-reloj-perfil);
+}
+
+.centro {
+    position: absolute;
+    width: var(--grosor);
+    height: var(--grosor);
+    background-color: var(--color-reloj-perfil);
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    border: solid 1px gray;
+}
+
+.manecilla {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    transform-origin: bottom;
+}
+
+#hora {
+    --ancho: calc( var(--radio) * .1 );
+    --largo: calc( var(--radio) * .3 );
+    width: var(--ancho);
+    height: var(--largo);
+    border-radius: calc( var(--ancho) / 2 );
+    background-color: var(--color-hora);
+    top: calc( var(--radio) - var(--largo) );
+}
+
+#minutos {
+    --ancho: calc( var(--radio) * .07 );
+    --largo: calc( var(--radio) * .4 );
+    width: var(--ancho);
+    height: var(--largo);
+    border-radius: calc( var(--ancho) / 2 );
+    background-color: var(--color-minutos);
+    top: calc( var(--radio) - var(--largo) );
+}
+
+#segundos {
+    --ancho: calc( var(--radio) * .03 );
+    --largo: calc( var(--radio) * .6 );
+    width: var(--ancho);
+    height: var(--largo);
+    border-radius: calc( var(--ancho) / 2 );
+    background-color: rgb(122, 171, 255);
+    top: calc( var(--radio) - var(--largo));
+}
